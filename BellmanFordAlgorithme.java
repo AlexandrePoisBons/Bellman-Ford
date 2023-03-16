@@ -9,10 +9,9 @@ import java.util.Scanner;
 import java.io.FileInputStream;
 
 public class BellmanFordAlgorithme
-{
+{   
     public static void main(String[] args) 
     {
-
         System.setProperty("org.graphstream.ui", "swing");
 
         SingleGraph graph = new SingleGraph("Bellman-Ford Algorithm");
@@ -66,17 +65,17 @@ public class BellmanFordAlgorithme
 		}
 		catch (Exception e){ e.printStackTrace(); }
     
-        
         graph.display();
-
-        BellManFord(graph, nodes.get(0) );
-
     }
 
-    private static void BellManFord(Graph graph, Node source) {
+    public static ArrayList<String> BellManFord(Graph graph, Node source ) 
+    {
         
+       ArrayList<String> path = new ArrayList<String>();
+       
         // Initialisation
-        for (Node node : graph) {
+        for (Node node : graph) 
+        {
     
             node.setAttribute("distance", Double.POSITIVE_INFINITY);
             node.setAttribute("parent", "null");
@@ -121,8 +120,12 @@ public class BellmanFordAlgorithme
                 
                 prev = (Node) prev.getAttribute("parent");
             }
+
     
-            System.out.println(node.getId() + " : " + source.getId() + " -> " + str);
+            path.add(node.getId() + " : " + source.getId() + " -> " + str);
+            //System.out.println(node.getId() + " : " + source.getId() + " -> " + str);
         }
+
+        return path;
     }
 }
