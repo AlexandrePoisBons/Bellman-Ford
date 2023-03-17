@@ -66,6 +66,7 @@ public class BellmanFordAlgorithme
 		catch (Exception e){ e.printStackTrace(); }
     
         graph.display();
+        
     }
 
     public static ArrayList<String> BellManFord(Graph graph, Node source ) 
@@ -110,11 +111,16 @@ public class BellmanFordAlgorithme
         {
             if (node == source) continue;
             
+            if ( node.getAttribute("parent") instanceof String ) continue;
+
             Node prev = (Node) node.getAttribute("parent");
+
+          
     
             String str = node.getId() + "";
     
-            while (prev != source && prev != null) {
+            while (prev != source && prev != null) 
+            {
     
                 str = prev.getId() + " -> " + str;
                 

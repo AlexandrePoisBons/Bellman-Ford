@@ -154,7 +154,7 @@ public class FrameNoeuds extends JFrame
             // Récupération de l'objet Node
             Node nodeN = graph.getNode(nodeS);
             
-            //System.out.println("Node : " + nodeN );
+            System.out.println("Node : " + nodeN );
             
             // Récupération du chemin le plus court
             ArrayList<String> path = BellmanFordAlgorithme.BellManFord( graph, nodeN );

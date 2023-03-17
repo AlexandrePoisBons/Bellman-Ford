@@ -4,7 +4,20 @@ public class Lanceur
     {   
         System.setProperty("org.graphstream.ui", "swing");
         
-        new BellmanFordAlgorithme();
-        new FrameNoeuds();
+        new Thread()
+        {
+            public void run()
+            {
+                new FrameNoeuds();
+            }
+        }.start();
+        
+        new Thread()
+        {
+            public void run()
+            {
+                BellmanFordAlgorithme.main(args);
+            }
+        }.start();
     }
 }
